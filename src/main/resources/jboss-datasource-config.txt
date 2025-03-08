@@ -1,0 +1,71 @@
+# JBoss EAP 7.4 Datasource Configuration
+
+This file contains instructions on how to configure the JNDI datasource in JBoss EAP 7.4 for the EFD-Reinf Integration application.
+
+## Datasource Configuration
+
+Add the following datasource configuration to your JBoss EAP 7.4 standalone.xml or standalone-full.xml file in the datasources subsystem:
+
+```xml
+<datasources>
+    <!-- Other datasources... -->
+    
+    <datasource jndi-name="java:jboss/datasources/ReinfDS" pool-name="ReinfDS" enabled="true" use-java-context="true">
+        <connection-url>jdbc:postgresql://localhost:5432/reinf_db</connection-url>
+        <driver>postgresql</driver>
+        <security>
+            <user-name>postgres</user-name>
+            <password>postgres</password>
+        </security>
+        <validation>
+            <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker"/>
+            <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter"/>
+        </validation>
+    </datasource>
+    
+    <!-- Make sure the PostgreSQL driver is defined -->
+    <drivers>
+        <!-- Other drivers... -->
+        <driver name="postgresql" module="org.postgresql">
+            <xa-datasource-class>org.postgresql.xa.PGXADataSource</xa-datasource-class>
+        </driver>
+    </drivers>
+</datasources>
+```
+
+## PostgreSQL Driver Installation
+
+If the PostgreSQL driver is not already installed in your JBoss EAP 7.4 instance, follow these steps:
+
+1. Create a module directory structure:
+   ```
+   $JBOSS_HOME/modules/org/postgresql/main/
+   ```
+
+2. Download the PostgreSQL JDBC driver (postgresql-42.x.x.jar) and place it in the directory.
+
+3. Create a module.xml file in the same directory with the following content:
+   ```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+   <module xmlns="urn:jboss:module:1.1" name="org.postgresql">
+       <resources>
+           <resource-root path="postgresql-42.x.x.jar"/>
+       </resources>
+       <dependencies>
+           <module name="javax.api"/>
+           <module name="javax.transaction.api"/>
+       </dependencies>
+   </module>
+   ```
+
+4. Replace "postgresql-42.x.x.jar" with the actual filename of your PostgreSQL JDBC driver.
+
+5. Restart JBoss EAP 7.4 to apply the changes.
+
+## Customization
+
+Adjust the following parameters according to your environment:
+
+- connection-url: Update the hostname, port, and database name
+- user-name: Update with your database username
+- password: Update with your database password
