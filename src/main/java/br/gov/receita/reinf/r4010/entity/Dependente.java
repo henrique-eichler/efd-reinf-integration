@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
-@Table(name = "dependente")
+@Table(name = "dependente", schema = "r4010")
 public class Dependente {
 
     @Id

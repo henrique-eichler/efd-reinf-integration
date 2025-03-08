@@ -5,7 +5,7 @@ import java.time.YearMonth;
 import java.util.Objects;
 
 @Entity
-@Table(name = "evento_retencao_pf")
+@Table(name = "evento_retencao_pf", schema = "r4010")
 public class EventoRetencaoPessoaFisica {
 
     @Id
