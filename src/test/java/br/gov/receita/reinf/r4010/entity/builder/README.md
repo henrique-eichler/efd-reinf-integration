@@ -1,17 +1,17 @@
-# Builder Tests
+# Testes de Builder
 
-This directory contains tests for the builder pattern implementation in the entity classes.
+Este diretório contém testes para a implementação do padrão builder nas classes de entidade.
 
-## Purpose
+## Objetivo
 
-The builder pattern tests verify that:
-1. The builder correctly sets all fields in the entity
-2. The build() method returns a properly constructed entity
-3. The builder methods are chainable
+Os testes do padrão builder verificam que:
+1. O builder define corretamente todos os campos na entidade
+2. O método build() retorna uma entidade construída adequadamente
+3. Os métodos do builder são encadeáveis
 
-## Implementation
+## Implementação
 
-The builder tests are already included in the entity test classes:
+Os testes de builder já estão incluídos nas classes de teste de entidade:
 - BeneficiarioTest.java
 - BeneficiarioPensaoTest.java
 - ContribuinteTest.java
@@ -21,4 +21,4 @@ The builder tests are already included in the entity test classes:
 - EventoRetencaoPessoaFisicaTest.java
 - PagamentoTest.java
 
-Each entity test class includes a `testBuilderAndGettersSetters()` method that tests the builder pattern along with getters and setters.
+Cada classe de teste de entidade inclui um método `testBuilderAndGettersSetters()` que testa o padrão builder junto com getters e setters.

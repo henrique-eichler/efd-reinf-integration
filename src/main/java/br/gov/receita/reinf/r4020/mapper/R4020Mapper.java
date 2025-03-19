@@ -17,7 +17,7 @@ public interface R4020Mapper {
     R4020Mapper INSTANCE = Mappers.getMapper(R4020Mapper.class);
 
     /**
-     * Converts XMLGregorianCalendar to YearMonth
+     * Converte XMLGregorianCalendar para YearMonth
      */
     @Named("xmlGregorianCalendarToYearMonth")
     default YearMonth xmlGregorianCalendarToYearMonth(XMLGregorianCalendar value) {
@@ -28,7 +28,7 @@ public interface R4020Mapper {
     }
 
     /**
-     * Converts XMLGregorianCalendar to LocalDate
+     * Converte XMLGregorianCalendar para LocalDate
      */
     @Named("xmlGregorianCalendarToLocalDate")
     default LocalDate xmlGregorianCalendarToLocalDate(XMLGregorianCalendar xcal) {
@@ -38,7 +38,7 @@ public interface R4020Mapper {
         return LocalDate.of(xcal.getYear(), xcal.getMonth(), xcal.getDay());
     }
 
-    // Map root element
+    // Mapear elemento raiz
     @Mapping(source = "evtRetPJ.ideEvento.indRetif", target = "indRetif")
     @Mapping(source = "evtRetPJ.ideEvento.nrRecibo", target = "nrRecibo")
     @Mapping(source = "evtRetPJ.ideEvento.perApur", target = "perApur", qualifiedByName = "xmlGregorianCalendarToYearMonth")
@@ -51,19 +51,19 @@ public interface R4020Mapper {
     @Mapping(target = "id", ignore = true)
     EventoRetencaoPessoaJuridica toEntity(Reinf reinfXml);
 
-    // Map Contribuinte
+    // Mapear Contribuinte
     @Mapping(source = "tpInsc", target = "tpInsc")
     @Mapping(source = "nrInsc", target = "nrInsc")
     Contribuinte toContribuinte(Reinf.EvtRetPJ.IdeContri ideContri);
 
-    // Map Estabelecimento
+    // Mapear Estabelecimento
     @Mapping(source = "tpInscEstab", target = "tpInscEstab")
     @Mapping(source = "nrInscEstab", target = "nrInscEstab")
     @Mapping(source = "ideBenef", target = "beneficiario")
     @Mapping(target = "id", ignore = true)
     Estabelecimento toEstabelecimento(Reinf.EvtRetPJ.IdeEstab ideEstab);
 
-    // Map Beneficiario
+    // Mapear Beneficiario
     @Mapping(source = "cnpjBenef", target = "cnpjBenef")
     @Mapping(source = "nmBenef", target = "nmBenef")
     @Mapping(source = "isenImun", target = "isenImun")
@@ -72,7 +72,7 @@ public interface R4020Mapper {
     @Mapping(target = "id", ignore = true)
     Beneficiario toBeneficiario(Reinf.EvtRetPJ.IdeEstab.IdeBenef ideBenef);
 
-    // Map Pagamento
+    // Mapear Pagamento
     @Mapping(source = "natRend", target = "natRend")
     @Mapping(source = "observ", target = "observ")
     @Mapping(target = "dtFG", expression = "java(infoPgtoToDtFG(idePgto))")

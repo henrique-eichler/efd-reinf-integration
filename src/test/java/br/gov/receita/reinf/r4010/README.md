@@ -1,24 +1,24 @@
-# R4010 Tests
+# Testes R4010
 
-This directory contains tests for the r4010 package, which includes entity classes and mappers for handling R-4010 events (Retenção de Pessoa Física).
+Este diretório contém testes para o pacote r4010, que inclui classes de entidade e mapeadores para manipulação de eventos R-4010 (Retenção de Pessoa Física).
 
-## Test Structure
+## Estrutura de Testes
 
-The tests are organized into the following packages:
+Os testes estão organizados nos seguintes pacotes:
 
-- `entity`: Tests for entity classes
-  - `builder`: Documentation for builder pattern tests
-- `mapper`: Tests for mapper classes
+- `entity`: Testes para classes de entidade
+  - `builder`: Documentação para testes de padrão builder
+- `mapper`: Testes para classes de mapeamento
 
-## Entity Tests
+## Testes de Entidade
 
-Each entity class has a corresponding test class that verifies:
+Cada classe de entidade possui uma classe de teste correspondente que verifica:
 
-1. **Builder Pattern**: Tests that the builder correctly sets all fields and returns a properly constructed entity
-2. **Getters and Setters**: Tests that getters and setters work correctly
-3. **equals() and hashCode()**: Tests that equals() and hashCode() methods work correctly, including edge cases
+1. **Padrão Builder**: Testa se o builder define corretamente todos os campos e retorna uma entidade construída adequadamente
+2. **Getters e Setters**: Testa se os getters e setters funcionam corretamente
+3. **equals() e hashCode()**: Testa se os métodos equals() e hashCode() funcionam corretamente, incluindo casos extremos
 
-Entity test classes:
+Classes de teste de entidade:
 - BeneficiarioTest.java
 - BeneficiarioPensaoTest.java
 - ContribuinteTest.java
@@ -28,35 +28,35 @@ Entity test classes:
 - EventoRetencaoPessoaFisicaTest.java
 - PagamentoTest.java
 
-## Mapper Tests
+## Testes de Mapeador
 
-The mapper tests verify that the mapper correctly maps XML schema objects to entity objects:
+Os testes de mapeador verificam se o mapeador mapeia corretamente objetos de esquema XML para objetos de entidade:
 
-- R4010MapperTest.java: Tests the R4010Mapper class
+- R4010MapperTest.java: Testa a classe R4010Mapper
 
-## Running the Tests
+## Executando os Testes
 
-To run all tests:
+Para executar todos os testes:
 
 ```bash
 mvn test
 ```
 
-To run a specific test class:
+Para executar uma classe de teste específica:
 
 ```bash
 mvn test -Dtest=BeneficiarioTest
 ```
 
-To run a specific test method:
+Para executar um método de teste específico:
 
 ```bash
 mvn test -Dtest=BeneficiarioTest#testBuilderAndGettersSetters
 ```
 
-## Test Coverage
+## Cobertura de Testes
 
-The tests cover:
-- All entity classes in the r4010.entity package
-- The mapper class in the r4010.mapper package
-- All methods in these classes, including getters, setters, equals(), hashCode(), and builder methods
+Os testes cobrem:
+- Todas as classes de entidade no pacote r4010.entity
+- A classe de mapeador no pacote r4010.mapper
+- Todos os métodos nestas classes, incluindo getters, setters, equals(), hashCode(), e métodos builder

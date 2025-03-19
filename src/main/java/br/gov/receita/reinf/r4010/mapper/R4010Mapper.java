@@ -17,7 +17,7 @@ public interface R4010Mapper {
     R4010Mapper INSTANCE = Mappers.getMapper(R4010Mapper.class);
 
     /**
-     * Converts XMLGregorianCalendar to YearMonth
+     * Converte XMLGregorianCalendar para YearMonth
      */
     default YearMonth map(XMLGregorianCalendar value) {
         if (value == null) {
@@ -26,7 +26,7 @@ public interface R4010Mapper {
         return YearMonth.of(value.getYear(), value.getMonth());
     }
 
-    // Map root element
+    // Mapear elemento raiz
     @Mapping(source = "evtRetPF.ideEvento.indRetif", target = "indRetif")
     @Mapping(source = "evtRetPF.ideEvento.nrRecibo", target = "nrRecibo")
     @Mapping(source = "evtRetPF.ideEvento.perApur", target = "perApur")
@@ -39,19 +39,19 @@ public interface R4010Mapper {
     @Mapping(target = "id", ignore = true)
     EventoRetencaoPessoaFisica toEntity(Reinf reinfXml);
 
-    // Map Contribuinte
+    // Mapear Contribuinte
     @Mapping(source = "tpInsc", target = "tpInsc")
     @Mapping(source = "nrInsc", target = "nrInsc")
     Contribuinte toContribuinte(Reinf.EvtRetPF.IdeContri ideContri);
 
-    // Map Estabelecimento
+    // Mapear Estabelecimento
     @Mapping(source = "tpInscEstab", target = "tpInscEstab")
     @Mapping(source = "nrInscEstab", target = "nrInscEstab")
     @Mapping(source = "ideBenef", target = "beneficiario")
     @Mapping(target = "id", ignore = true)
     Estabelecimento toEstabelecimento(Reinf.EvtRetPF.IdeEstab ideEstab);
 
-    // Map Beneficiario
+    // Mapear Beneficiario
     @Mapping(source = "cpfBenef", target = "cpfBenef")
     @Mapping(source = "nmBenef", target = "nmBenef")
     @Mapping(source = "ideDep", target = "dependentes")
@@ -59,7 +59,7 @@ public interface R4010Mapper {
     @Mapping(target = "id", ignore = true)
     Beneficiario toBeneficiario(Reinf.EvtRetPF.IdeEstab.IdeBenef ideBenef);
 
-    // Map Pagamento
+    // Mapear Pagamento
     @Mapping(source = "natRend", target = "natRend")
     @Mapping(source = "observ", target = "observ")
     @Mapping(source = "infoPgto", target = "deducoes", qualifiedByName = "mapDeducoes")
@@ -78,7 +78,7 @@ public interface R4010Mapper {
     @Mapping(target = "id", ignore = true)
     Pagamento toPagamento(Reinf.EvtRetPF.IdeEstab.IdeBenef.IdePgto idePgto);
 
-    // Map InfoPgto to Pagamento
+    // Mapear InfoPgto para Pagamento
     @Mapping(source = "dtFG", target = "dtFG")
     @Mapping(source = "compFP", target = "compFP")
     @Mapping(source = "indDecTerc", target = "indDecTerc")
@@ -96,7 +96,7 @@ public interface R4010Mapper {
     @Mapping(target = "natRend", ignore = true)
     void updatePagamentoFromInfoPgto(Reinf.EvtRetPF.IdeEstab.IdeBenef.IdePgto.InfoPgto infoPgto, @MappingTarget Pagamento pagamento);
 
-    // Map Dependente
+    // Mapear Dependente
     @Mapping(source = "cpfDep", target = "cpfDep")
     @Mapping(source = "relDep", target = "relDep")
     @Mapping(source = "descrDep", target = "descrDep")
@@ -105,7 +105,7 @@ public interface R4010Mapper {
     @Mapping(target = "nome", ignore = true)
     Dependente toDependente(Reinf.EvtRetPF.IdeEstab.IdeBenef.IdeDep ideDep);
 
-    // Map Deducao
+    // Mapear Deducao
     @Mapping(source = "indTpDeducao", target = "indTpDeducao")
     @Mapping(source = "vlrDeducao", target = "vlrDeducao")
     @Mapping(source = "nrInscPrevComp", target = "nrInscPrevComp")

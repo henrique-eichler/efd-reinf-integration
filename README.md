@@ -1,34 +1,34 @@
-# EFD-Reinf Integration
+# Integração EFD-Reinf
 
-This project provides an integration solution for the Brazilian EFD-Reinf (Escrituração Fiscal Digital de Retenções e Outras Informações Fiscais) system, which is part of the Brazilian Federal Revenue Service (Receita Federal) digital tax reporting requirements.
+Este projeto fornece uma solução de integração para o sistema brasileiro EFD-Reinf (Escrituração Fiscal Digital de Retenções e Outras Informações Fiscais), que faz parte dos requisitos de declaração fiscal digital da Receita Federal do Brasil.
 
-## Overview
+## Visão Geral
 
-EFD-Reinf Integration is a Java EE application that facilitates the generation, validation, signing, and transmission of EFD-Reinf events to the Brazilian government's systems. It handles various event types related to tax withholding information, particularly focusing on:
+A Integração EFD-Reinf é uma aplicação Java EE que facilita a geração, validação, assinatura e transmissão de eventos EFD-Reinf para os sistemas do governo brasileiro. Ela lida com vários tipos de eventos relacionados a informações de retenção de impostos, com foco particular em:
 
-- R-4010: Payment to individual beneficiaries (pessoa física)
-- R-4020: Payment to legal entity beneficiaries (pessoa jurídica)
-- R-4040: Payment to unidentified beneficiaries
-- R-4080: Withholding receipt
-- R-4099: DIRF closing
+- R-4010: Pagamento a beneficiários pessoa física
+- R-4020: Pagamento a beneficiários pessoa jurídica
+- R-4040: Pagamento a beneficiários não identificados
+- R-4080: Recibo de retenção
+- R-4099: Fechamento da DIRF
 
-The application provides a complete solution for managing the lifecycle of EFD-Reinf events, from data entry to submission and response processing.
+A aplicação fornece uma solução completa para gerenciar o ciclo de vida dos eventos EFD-Reinf, desde a entrada de dados até o envio e processamento de respostas.
 
-## Technologies
+## Tecnologias
 
-- **Java 8**: Core programming language
-- **Java EE 8**: Enterprise application framework
-- **JBoss EAP 7.4**: Application server
-- **PostgreSQL**: Database for storing event data
-- **JAXB**: XML binding for handling XML schemas and objects
-- **MapStruct**: Object mapping between entities and DTOs
-- **PrimeFaces**: JSF component library for the web interface
-- **Apache Santuario (XML Security)**: For digital signatures
-- **Apache HTTP Client**: For REST communication with government services
-- **JPA/Hibernate**: For database persistence
-- **Maven**: Build and dependency management
+- **Java 8**: Linguagem de programação principal
+- **Java EE 8**: Framework de aplicação empresarial
+- **JBoss EAP 7.4**: Servidor de aplicação
+- **PostgreSQL**: Banco de dados para armazenamento de dados de eventos
+- **JAXB**: Vinculação XML para manipulação de esquemas e objetos XML
+- **MapStruct**: Mapeamento de objetos entre entidades e DTOs
+- **PrimeFaces**: Biblioteca de componentes JSF para interface web
+- **Apache Santuario (XML Security)**: Para assinaturas digitais
+- **Apache HTTP Client**: Para comunicação REST com serviços governamentais
+- **JPA/Hibernate**: Para persistência de banco de dados
+- **Maven**: Gerenciamento de dependências e build
 
-## Project Structure
+## Estrutura do Projeto
 
 ```
 src/
@@ -38,57 +38,57 @@ src/
 │   │       └── gov/
 │   │           └── receita/
 │   │               └── reinf/
-│   │                   ├── r4010/         # R-4010 event handling
-│   │                   ├── r4020/         # R-4020 event handling
-│   │                   ├── repository/    # Data access layer
-│   │                   └── util/          # Utility classes
+│   │                   ├── r4010/         # Tratamento de eventos R-4010
+│   │                   ├── r4020/         # Tratamento de eventos R-4020
+│   │                   ├── repository/    # Camada de acesso a dados
+│   │                   └── util/          # Classes utilitárias
 │   └── resources/
 │       ├── META-INF/
-│       │   └── persistence.xml  # JPA configuration
-│       └── schemas/            # XML schemas for EFD-Reinf events
+│       │   └── persistence.xml  # Configuração JPA
+│       └── schemas/            # Esquemas XML para eventos EFD-Reinf
 └── test/
-    ├── java/                  # Test classes
-    └── resources/             # Test resources
+    ├── java/                  # Classes de teste
+    └── resources/             # Recursos de teste
 ```
 
-## Setup Instructions
+## Instruções de Configuração
 
-### Prerequisites
+### Pré-requisitos
 
 - JDK 8
 - Maven 3.6+
 - JBoss EAP 7.4
 - PostgreSQL 12+
 
-### Database Configuration
+### Configuração do Banco de Dados
 
-1. Create a PostgreSQL database named `reinf_db`
-2. Configure the JBoss datasource as described in `src/main/resources/jboss-datasource-config.txt`
+1. Crie um banco de dados PostgreSQL chamado `reinf_db`
+2. Configure o datasource do JBoss conforme descrito em `src/main/resources/jboss-datasource-config.txt`
 
-### Building the Application
+### Compilando a Aplicação
 
 ```bash
 mvn clean package
 ```
 
-This will generate a WAR file in the `target` directory.
+Isso irá gerar um arquivo WAR no diretório `target`.
 
-### Deployment
+### Implantação
 
-1. Copy the generated WAR file to the JBoss deployment directory
-2. Start JBoss EAP
-3. Access the application at `http://localhost:8080/efd-reinf-integration`
+1. Copie o arquivo WAR gerado para o diretório de implantação do JBoss
+2. Inicie o JBoss EAP
+3. Acesse a aplicação em `http://localhost:8080/efd-reinf-integration`
 
-## Development
+## Desenvolvimento
 
-The project uses JAXB to generate Java classes from the XML schemas provided by the Brazilian Federal Revenue Service. These classes are generated during the build process and are used for serializing and deserializing XML messages.
+O projeto utiliza JAXB para gerar classes Java a partir dos esquemas XML fornecidos pela Receita Federal do Brasil. Essas classes são geradas durante o processo de build e são utilizadas para serializar e desserializar mensagens XML.
 
-MapStruct is used to map between the generated JAXB classes and the JPA entities, simplifying the transformation of data between the different layers of the application.
+MapStruct é utilizado para mapear entre as classes JAXB geradas e as entidades JPA, simplificando a transformação de dados entre as diferentes camadas da aplicação.
 
-## License
+## Licença
 
-This project is proprietary software.
+Este projeto é um software proprietário.
 
-## Contributing
+## Contribuição
 
-Please contact the project maintainers for information about contributing to this project.
+Por favor, entre em contato com os mantenedores do projeto para obter informações sobre como contribuir para este projeto.

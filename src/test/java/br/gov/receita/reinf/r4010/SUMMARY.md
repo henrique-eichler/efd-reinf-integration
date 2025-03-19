@@ -1,27 +1,27 @@
-# Summary of Implemented Tests
+# Resumo dos Testes Implementados
 
-I've implemented comprehensive tests for the r4010 package, including:
+Implementei testes abrangentes para o pacote r4010, incluindo:
 
-## Entity Tests
-- Created test classes for all 8 entity classes
-- Each test verifies:
-  - Builder pattern functionality
-  - Getters and setters
-  - equals() and hashCode() methods
+## Testes de Entidade
+- Criei classes de teste para todas as 8 classes de entidade
+- Cada teste verifica:
+  - Funcionalidade do padrão Builder
+  - Getters e setters
+  - Métodos equals() e hashCode()
 
-## Mapper Tests
-- Created a test class for the R4010Mapper
-- Verifies correct mapping from XML schema objects to entity objects
-- Handles complex nested object structures
+## Testes de Mapeador
+- Criei uma classe de teste para o R4010Mapper
+- Verifica o mapeamento correto de objetos de esquema XML para objetos de entidade
+- Lida com estruturas de objetos aninhados complexos
 
-## Documentation
-- Added README.md files explaining the test structure
-- Included instructions for running tests
-- Documented test coverage
+## Documentação
+- Adicionei arquivos README.md explicando a estrutura de teste
+- Incluí instruções para execução de testes
+- Documentei a cobertura de testes
 
-## Organization
-- Organized tests in a logical package structure
-- Created separate packages for entity and mapper tests
-- Added documentation for builder pattern tests
+## Organização
+- Organizei os testes em uma estrutura lógica de pacotes
+- Criei pacotes separados para testes de entidade e mapeador
+- Adicionei documentação para testes de padrão builder
 
-All tests follow JUnit 5 best practices and provide thorough verification of the functionality.
+Todos os testes seguem as melhores práticas do JUnit 5 e fornecem verificação completa da funcionalidade.
