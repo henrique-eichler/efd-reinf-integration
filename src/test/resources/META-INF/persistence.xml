@@ -15,13 +15,25 @@
         <class>br.gov.receita.reinf.r4010.entity.Pagamento</class>
         <class>br.gov.receita.reinf.r4010.entity.Contribuinte</class>
 
+        <!-- R-4020 entities -->
+        <class>br.gov.receita.reinf.r4020.entity.Beneficiario</class>
+        <class>br.gov.receita.reinf.r4020.entity.Contribuinte</class>
+        <class>br.gov.receita.reinf.r4020.entity.Estabelecimento</class>
+        <class>br.gov.receita.reinf.r4020.entity.EventoRetencaoPessoaJuridica</class>
+        <class>br.gov.receita.reinf.r4020.entity.IdeAdv</class>
+        <class>br.gov.receita.reinf.r4020.entity.InfoPgtoExt</class>
+        <class>br.gov.receita.reinf.r4020.entity.InfoProcJud</class>
+        <class>br.gov.receita.reinf.r4020.entity.InfoProcRet</class>
+        <class>br.gov.receita.reinf.r4020.entity.Pagamento</class>
+        <class>br.gov.receita.reinf.r4020.entity.Retencoes</class>
+
         <properties>
             <!-- H2 in-memory database properties -->
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1"/>
             <property name="javax.persistence.jdbc.user" value="sa"/>
             <property name="javax.persistence.jdbc.password" value=""/>
-            
+
             <!-- Hibernate properties -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
             <property name="hibernate.show_sql" value="true"/>
