@@ -25,9 +25,9 @@ public class EstabelecimentoRepositoryImpl extends AbstractRepository<Estabeleci
     @Override
     public Optional<Estabelecimento> findByNrInscEstab(String nrInscEstab) {
         TypedQuery<Estabelecimento> query = entityManager.createQuery(
-                "SELECT e FROM Estabelecimento e WHERE e.nrInscEstab = :nrInscEstab", Estabelecimento.class);
+                "SELECT e FROM EstabelecimentoR4020 e WHERE e.nrInscEstab = :nrInscEstab", Estabelecimento.class);
         query.setParameter("nrInscEstab", nrInscEstab);
-        
+
         try {
             return Optional.of(query.getSingleResult());
         } catch (NoResultException e) {
@@ -38,10 +38,10 @@ public class EstabelecimentoRepositoryImpl extends AbstractRepository<Estabeleci
     @Override
     public Optional<Estabelecimento> findByTpInscEstabAndNrInscEstab(Integer tpInscEstab, String nrInscEstab) {
         TypedQuery<Estabelecimento> query = entityManager.createQuery(
-                "SELECT e FROM Estabelecimento e WHERE e.tpInscEstab = :tpInscEstab AND e.nrInscEstab = :nrInscEstab", Estabelecimento.class);
+                "SELECT e FROM EstabelecimentoR4020 e WHERE e.tpInscEstab = :tpInscEstab AND e.nrInscEstab = :nrInscEstab", Estabelecimento.class);
         query.setParameter("tpInscEstab", tpInscEstab);
         query.setParameter("nrInscEstab", nrInscEstab);
-        
+
         try {
             return Optional.of(query.getSingleResult());
         } catch (NoResultException e) {

@@ -3,7 +3,7 @@ package br.gov.receita.reinf.r4020.entity;
 import javax.persistence.*;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "EstabelecimentoR4020")
 @Table(name = "estabelecimento", schema = "r4020")
 public class Estabelecimento {
 

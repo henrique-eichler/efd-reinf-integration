@@ -1,10 +1,12 @@
-package br.gov.receita.reinf.r4010.entity;
+package br.gov.receita.reinf.r4040.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-@Entity(name = "EstabelecimentoR4010")
-@Table(name = "estabelecimento", schema = "r4010")
+@Entity(name = "EstabelecimentoR4040")
+@Table(name = "estabelecimento", schema = "r4040")
 public class Estabelecimento {
 
     @Id
@@ -13,9 +15,10 @@ public class Estabelecimento {
 
     private Integer tpInscEstab;
     private String nrInscEstab;
+    private String ideEvtAdic;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Beneficiario beneficiario;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<NaturezaRendimento> naturezasRendimento = new ArrayList<>();
 
     // Getters and Setters
     public Long getId() {
@@ -42,12 +45,20 @@ public class Estabelecimento {
         this.nrInscEstab = nrInscEstab;
     }
 
-    public Beneficiario getBeneficiario() {
-        return beneficiario;
+    public String getIdeEvtAdic() {
+        return ideEvtAdic;
     }
 
-    public void setBeneficiario(Beneficiario beneficiario) {
-        this.beneficiario = beneficiario;
+    public void setIdeEvtAdic(String ideEvtAdic) {
+        this.ideEvtAdic = ideEvtAdic;
+    }
+
+    public List<NaturezaRendimento> getNaturezasRendimento() {
+        return naturezasRendimento;
+    }
+
+    public void setNaturezasRendimento(List<NaturezaRendimento> naturezasRendimento) {
+        this.naturezasRendimento = naturezasRendimento;
     }
 
     // equals and hashCode
@@ -87,8 +98,13 @@ public class Estabelecimento {
             return this;
         }
 
-        public Builder beneficiario(Beneficiario beneficiario) {
-            instance.setBeneficiario(beneficiario);
+        public Builder ideEvtAdic(String ideEvtAdic) {
+            instance.setIdeEvtAdic(ideEvtAdic);
+            return this;
+        }
+
+        public Builder naturezasRendimento(List<NaturezaRendimento> naturezasRendimento) {
+            instance.setNaturezasRendimento(naturezasRendimento);
             return this;
         }
 

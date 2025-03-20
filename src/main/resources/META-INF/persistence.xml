@@ -27,6 +27,14 @@
         <class>br.gov.receita.reinf.r4020.entity.Pagamento</class>
         <class>br.gov.receita.reinf.r4020.entity.Retencoes</class>
 
+        <!-- R-4040 entities -->
+        <class>br.gov.receita.reinf.r4040.entity.EventoRetencaoBeneficiarioNaoIdentificado</class>
+        <class>br.gov.receita.reinf.r4040.entity.Pagamento</class>
+        <class>br.gov.receita.reinf.r4040.entity.ProcessoRetencao</class>
+        <class>br.gov.receita.reinf.r4040.entity.Contribuinte</class>
+        <class>br.gov.receita.reinf.r4040.entity.NaturezaRendimento</class>
+        <class>br.gov.receita.reinf.r4040.entity.Estabelecimento</class>
+
         <properties>
             <!-- JBoss EAP 7.4 properties -->
             <property name="hibernate.show_sql" value="true"/>

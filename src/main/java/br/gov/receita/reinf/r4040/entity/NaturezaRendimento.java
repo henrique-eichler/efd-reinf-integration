@@ -1,23 +1,19 @@
-package br.gov.receita.reinf.r4010.entity;
+package br.gov.receita.reinf.r4040.entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-@Entity(name = "BeneficiarioR4010")
-@Table(name = "beneficiario", schema = "r4010")
-public class Beneficiario {
+@Entity
+@Table(name = "natureza_rendimento", schema = "r4040")
+public class NaturezaRendimento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String cpfBenef;
-    private String nmBenef;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Dependente> dependentes = new ArrayList<>();
+    private String natRend;
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<Pagamento> pagamentos = new ArrayList<>();
@@ -31,28 +27,12 @@ public class Beneficiario {
         this.id = id;
     }
 
-    public String getCpfBenef() {
-        return cpfBenef;
+    public String getNatRend() {
+        return natRend;
     }
 
-    public void setCpfBenef(String cpfBenef) {
-        this.cpfBenef = cpfBenef;
-    }
-
-    public String getNmBenef() {
-        return nmBenef;
-    }
-
-    public void setNmBenef(String nmBenef) {
-        this.nmBenef = nmBenef;
-    }
-
-    public List<Dependente> getDependentes() {
-        return dependentes;
-    }
-
-    public void setDependentes(List<Dependente> dependentes) {
-        this.dependentes = dependentes;
+    public void setNatRend(String natRend) {
+        this.natRend = natRend;
     }
 
     public List<Pagamento> getPagamentos() {
@@ -68,7 +48,7 @@ public class Beneficiario {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Beneficiario that = (Beneficiario) o;
+        NaturezaRendimento that = (NaturezaRendimento) o;
         return Objects.equals(id, that.id);
     }
 
@@ -83,25 +63,15 @@ public class Beneficiario {
     }
 
     public static class Builder {
-        private final Beneficiario instance = new Beneficiario();
+        private final NaturezaRendimento instance = new NaturezaRendimento();
 
         public Builder id(Long id) {
             instance.setId(id);
             return this;
         }
 
-        public Builder cpfBenef(String cpfBenef) {
-            instance.setCpfBenef(cpfBenef);
-            return this;
-        }
-
-        public Builder nmBenef(String nmBenef) {
-            instance.setNmBenef(nmBenef);
-            return this;
-        }
-
-        public Builder dependentes(List<Dependente> dependentes) {
-            instance.setDependentes(dependentes);
+        public Builder natRend(String natRend) {
+            instance.setNatRend(natRend);
             return this;
         }
 
@@ -110,7 +80,7 @@ public class Beneficiario {
             return this;
         }
 
-        public Beneficiario build() {
+        public NaturezaRendimento build() {
             return instance;
         }
     }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "BeneficiarioR4020")
 @Table(name = "beneficiario", schema = "r4020")
 public class Beneficiario {
 

@@ -25,7 +25,7 @@ public class PagamentoRepositoryImpl extends AbstractRepository<Pagamento, Long>
     @Override
     public List<Pagamento> findByNatRend(String natRend) {
         TypedQuery<Pagamento> query = entityManager.createQuery(
-                "SELECT p FROM Pagamento p WHERE p.natRend = :natRend", Pagamento.class);
+                "SELECT p FROM PagamentoR4020 p WHERE p.natRend = :natRend", Pagamento.class);
         query.setParameter("natRend", natRend);
         return query.getResultList();
     }
@@ -33,7 +33,7 @@ public class PagamentoRepositoryImpl extends AbstractRepository<Pagamento, Long>
     @Override
     public List<Pagamento> findByDtFG(LocalDate dtFG) {
         TypedQuery<Pagamento> query = entityManager.createQuery(
-                "SELECT p FROM Pagamento p WHERE p.dtFG = :dtFG", Pagamento.class);
+                "SELECT p FROM PagamentoR4020 p WHERE p.dtFG = :dtFG", Pagamento.class);
         query.setParameter("dtFG", dtFG);
         return query.getResultList();
     }
@@ -41,7 +41,7 @@ public class PagamentoRepositoryImpl extends AbstractRepository<Pagamento, Long>
     @Override
     public List<Pagamento> findByNatRendAndDtFG(String natRend, LocalDate dtFG) {
         TypedQuery<Pagamento> query = entityManager.createQuery(
-                "SELECT p FROM Pagamento p WHERE p.natRend = :natRend AND p.dtFG = :dtFG", Pagamento.class);
+                "SELECT p FROM PagamentoR4020 p WHERE p.natRend = :natRend AND p.dtFG = :dtFG", Pagamento.class);
         query.setParameter("natRend", natRend);
         query.setParameter("dtFG", dtFG);
         return query.getResultList();

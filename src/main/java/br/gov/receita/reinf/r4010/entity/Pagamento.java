@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "PagamentoR4010")
 @Table(name = "pagamento", schema = "r4010")
 public class Pagamento {
 
